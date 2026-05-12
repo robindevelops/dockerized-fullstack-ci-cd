@@ -1,21 +1,33 @@
-version: 'version'
 services:
   backend:
-    build: .
+    build: ./backend
     ports:
-      - 8000:8000
-    depends_on:
-      - database
+      - 5000:5000
     restart: on-failure
     networks:
       - my-network
-  database:
-    image: postgres:13
+
+  redis:
+    image: redis:alpine
     ports:
-      - 5432:5432
-      
+      - 6379:6379
     networks:
       - my-network
+
+  mongo:
+    image: mongo:alpine
+    ports:
+      - 27017:27017
+    networks:
+      - my-network
+
+  # postgres:
+  #   image: postgres:alpine
+  #   ports:
+  #     - 5432:5432
+  #   networks:
+  #     - my-network
+
 
 networks:
   my-network:
