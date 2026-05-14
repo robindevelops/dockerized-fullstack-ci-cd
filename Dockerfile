@@ -1,5 +1,6 @@
 # Stage 1: Build & Dependencies
 FROM node:20-alpine AS builder
+
 WORKDIR /app
 
 # Only copy files needed for install to leverage Docker cache
@@ -11,6 +12,7 @@ COPY . .
 
 # Stage 2: Production Run
 FROM node:20-alpine
+
 WORKDIR /app
 
 USER node
