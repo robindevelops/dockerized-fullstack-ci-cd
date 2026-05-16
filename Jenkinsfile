@@ -21,7 +21,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo '🧪 Running tests...'
+                echo '🧪 Running automated tests...'
                 // Example: sh 'npm test' or custom test scripts
                 sh 'echo "All tests passed successfully!"'
             }
